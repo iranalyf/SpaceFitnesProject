@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+
+<head>
+<title>Cadastro de Usuario</title>
+</head>
+
+<body>
+	<section layout:fragment="conteudo">
+
+		<div class="page-header">
+			<div class="container-fluid">
+				<h1>Cadastro de Usuario</h1>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+
+			<div class="alert  alert-success  alert-dismissible" role="alert"
+				th:if="${not #strings.isEmpty(mensagem)}">
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<span th:text="${mensagem}"></span>
+			</div>
+
+			<form class="form-vertical  js-form-loading" method="POST"
+				th:object="${usuario}" th:action="@{/usuarios/save}">
+
+
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="input-produto-nome">Nome</label> <input
+							id="input-produto-nome" type="text" class="form-control"
+							th:field="*{nome}" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<label for="input-produto-apelido">Apelido</label> <input
+							id="input-produto-apelido" rows="3" class="form-control"
+							th:field="*{apelido}"
+							placeholder="Como gostaria de ser chamado ??" />
+					</div>
+
+					<div class="col-sm-3">
+						<label for="input-produto-dataNascimento">Data de
+							Nascimento</label> <input id="input-produto-dataNascimento" rows="3"
+							class="form-control" th:field="*{dataNascimento}" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="input-produto-email">E-Mail</label> <input
+								id="input-produto-email" type="text" class="form-control"
+								placeholder="Informe seu melhor E-Mail " th:field="*{email}" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="input-produto-senha">Senha</label> <input
+								id="input-produto-senha" type="text" class="form-control"
+								placeholder="Por Favor informe uma senha Segura"
+								th:field="*{senha}" />
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="form-group">
+							<label for="input-produto-csenha">Confirma Senha</label> <input
+								id="input-produto-csenha" type="text" class="form-control"
+								placeholder="Confirme sua Senha" />
+						</div>
+					</div>
+				</div>
+
+
+
+				<div class="form-group">
+					<button class="btn  btn-primary" type="submit">Salvar</button>
+					<a href="#" class="btn  btn-danger">Cancelar</a>
+				</div>
+			</form>
+		</div>
+
+	</section>
+</body>
+</html>

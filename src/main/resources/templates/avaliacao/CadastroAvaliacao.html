@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+
+<head>
+<title>Cadastro de Avaliação Física</title>
+</head>
+
+<body>
+	<section layout:fragment="conteudo">
+
+		<div class="page-header">
+			<div class="container-fluid">
+				<h1>Cadastro de Avaliação Física</h1>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+
+			<div class="alert  alert-success  alert-dismissible" role="alert"
+				th:if="${not #strings.isEmpty(mensagem)}">
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<span th:text="${mensagem}"></span>
+			</div>
+
+			<form method="POST" th:object="${avaliacao}"
+				th:action="@{/avaliacoes/save}"
+				class="form-vertical  js-form-loading">
+
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="input-produto-data">Data</label> <input
+								id="input-produto-data" type="text" class="form-control"
+								placeholder="Informe a Data" th:field="*{dataCriacao}" />
+						</div>
+					</div>
+
+
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="input-produto-bracod">Braço Direito</label> <input
+								id="input-produto-bracod" type="text" class="form-control"
+								placeholder="Informe o Braço Direito" th:field="*{bracoDireito}" />
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="input-produto-bracoEsquerdo">Braço Esquerdo</label> <input
+								id="input-produto-bracoEsquerdo" type="text"
+								class="form-control" placeholder="Informe o Braço Esquerdo"
+								th:field="*{bracoEsquerdo}" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="input-produto-cintura">Cintura</label> <input
+								id="input-produto-cintura" type="text" class="form-control"
+								placeholder="Informe a Cintura" th:field="*{cintura}" />
+						</div>
+					</div>
+
+
+
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="input-produto-coxaD">Coxa Direita</label> <input
+								id="input-produto-coxaD" type="text" class="form-control"
+								placeholder="Informe a Coxa Direita" th:field="*{coxaDireita}" />
+						</div>
+					</div>
+
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="input-produto-coxaE">Coxa Esquerda</label> <input
+								id="input-produto-coxaE" type="text" class="form-control"
+								placeholder="Informe a Coxa Esquerda" th:field="*{coxaEsquerda}" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="input-produto-ombros">Ombros</label> <input
+								id="input-produto-ombros" type="text" class="form-control"
+								placeholder="Informe os Ombros" th:field="*{ombros}" />
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="input-produto-peitoral">Peitoral</label> <input
+								id="input-produto-peitoral" type="text" class="form-control"
+								placeholder="Informe o Peitoral" th:field="*{peitoral}" />
+						</div>
+					</div>
+
+
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="input-produto-pernaDireita">Perna Direita</label> <input
+								id="input-produto-pernaDireita" type="text" class="form-control"
+								placeholder="Informe a Perna Direita" th:field="*{pernaDireita}" />
+						</div>
+					</div>
+
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="input-produto-pernaE">Perna Esquerda</label> <input
+								id="input-produto-pernaE" type="text" class="form-control"
+								placeholder="Informe a Perna Esquerda"
+								th:field="*{pernaEsquerda}" />
+						</div>
+
+
+					</div>
+
+
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label for="input-produto-pescoco">Pescoço</label> <input
+								id="input-produto-pescoco" type="text" class="form-control"
+								placeholder="Informe o Pecoço" th:field="*{pescoco}" />
+						</div>
+					</div>
+				</div>
+
+
+
+
+				<div class="form-group">
+					<button class="btn  btn-primary" type="submit">Salvar</button>
+					<a href="#" class="btn  btn-danger">Limpar Campos</a>
+				</div>
+
+			</form>
+		</div>
+
+	</section>
+</body>
+</html>
